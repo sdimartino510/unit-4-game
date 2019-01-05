@@ -34,7 +34,6 @@ body {
     color: #2e2e2e;
     font-size: 30px;
     text-align: center;
-    display: inline-block;
     position: absolute;
 }
 
@@ -45,4 +44,23 @@ body {
     background-color: #6495ed;
     position: relative;
     left: 210px;
+}
+
+img {
+    margin: 10px;
+}
+
+.score-is-box {
+    margin: 10px;
+    padding: 20px;
+    background-color: #00ffff;
+    display: inline-block;
+}
+
+.total-score-box {
+    margin: 10px;
+    padding: 20px;
+    background-color: #00ffff;
+    display: inline-block;
+    width: 184px;
 }
