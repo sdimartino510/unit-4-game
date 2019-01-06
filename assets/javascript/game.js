@@ -16,19 +16,23 @@ $(document).ready(function() {
     var maxRandNumber = 120;
     var randomNumber = randomNumberRange(minRandNumber, maxRandNumber);
 
+    
+    
     function randomNumberRange(min, max) {
 
         return Math.floor(Math.random() * (max - min + 1) + min);
-        
+
     }
 
-    console.log(randomNumber);
+    function startGame() {
 
-    $(".random-number-box").append(randomNumber);
+        console.log(randomNumber);
+
+        $(".random-number-box").append(randomNumber);
 
     //Randomly generate a number between 1 and 12 and assign it to each crystal. No two crystals may have the same number assigned.
 
-    function startGame() {
+
 
         function getRandomNumber() {
 
@@ -59,17 +63,23 @@ $(document).ready(function() {
             console.log("You lost!");
             lost++;
             $(".losses").html("Losses: " + lost);
+            clearRandomNumber();
             startGame();
-
+            
         } else if (currentScore === randomNumber) {
             console.log("You won!");
             won++;
             $(".wins").html("Wins: " + won);
+            clearRandomNumber();
             startGame();
-
+            
         }
 
     })
+
+    function clearRandomNumber() {
+        $(".random-number-box").empty();
+    }
 
     //compare the score in total-score-box to the number in random-number-box. if total score < random number, play continues. If total score = random number, player wins. if total score > random number, player loses. When player wins or loses, reset game
 
