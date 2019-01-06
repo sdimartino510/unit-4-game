@@ -34,6 +34,10 @@ $(document).ready(function() {
 
     //When player clicks on a crystal, assign the score assigned to that crystal to total-score-box. Add that crystal's value to the amount in total-score-box each time it is clicked.
 
+    $(".crystal").on("click", function() {
+        console.log($(this).attr("data-random-value"));
+    })
+
     //compare the score in total-score-box to the number in random-number-box. if total score < random number, play continues. If total score = random number, player wins. if total score > random number, player loses. When player wins or loses, reset game
 
     function resetGame() {
