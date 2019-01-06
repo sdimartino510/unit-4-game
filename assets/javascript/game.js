@@ -10,9 +10,9 @@ $(document).ready(function() {
     var minRandNumber = 19;
     var maxRandNumber = 120;
     var randomNumber = randomNumberRange(minRandNumber, maxRandNumber);
-    var minCrystalValue = 1;
-    var maxCrystalValue = 12;
-    var randomCrystalValue = randomCrystalValueRange(minCrystalValue, maxCrystalValue);
+    // var minCrystalValue = 1;
+    // var maxCrystalValue = 12;
+    // var randomCrystalValue = randomCrystalValueRange(minCrystalValue, maxCrystalValue);
 
     function randomNumberRange(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
@@ -23,10 +23,14 @@ $(document).ready(function() {
 
     //Randomly generate a number between 1 and 12 and assign it to each crystal. No two crystals may have the same number assigned.
 
-    function randomCrystalValueRange(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
+    function getRandomNumber() {
+        return Math.floor(Math.random() * 12) + 1;
     }
-    console.log(randomCrystalValue);
+
+    $(".crystal").each(function() { 
+        $(this).attr("data-random-value", getRandomNumber());
+    })
+    
 
     //When player clicks on a crystal, assign the score assigned to that crystal to total-score-box. Add that crystal's value to the amount in total-score-box each time it is clicked.
 
