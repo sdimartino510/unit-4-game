@@ -3,8 +3,6 @@ $(document).ready(function() {
     //random number should be 19-120
     //each crystal random between 1-12
 
-    //pseudocode
-
     var randomNumber;
     var won = 0;
     var lost = 0;
@@ -24,34 +22,40 @@ $(document).ready(function() {
 
     }
 
+    function getRandomNumber() {
+
+        return Math.floor(Math.random() * 12) + 1;
+
+    }
+
+    $(".crystal").each(function() {
+
+        $(this).attr("data-random-value", getRandomNumber());
+
+    })
+
     function startGame() {
 
         console.log(randomNumber);
 
         $(".random-number-box").append(randomNumber);
 
+    }
+    
     //Randomly generate a number between 1 and 12 and assign it to each crystal. No two crystals may have the same number assigned.
 
-
-
-        function getRandomNumber() {
-
-            return Math.floor(Math.random() * 12) + 1;
-
-        }
-
-        $(".crystal").each(function() {
-
-            $(this).attr("data-random-value", getRandomNumber());
-
-        })
     
-    }
 
     startGame();
 
     //When player clicks on a crystal, assign the score assigned to that crystal to total-score-box. Add that crystal's value to the amount in total-score-box each time it is clicked.
 
+    function clearRandomNumber() {
+
+        $(".random-number-box").empty();
+        
+    }
+    
     $(document).on("click", ".crystal", function() {
 
         var num = parseInt($(this).attr("data-random-value"));
@@ -77,9 +81,7 @@ $(document).ready(function() {
 
     })
 
-    function clearRandomNumber() {
-        $(".random-number-box").empty();
-    }
+    
 
     //compare the score in total-score-box to the number in random-number-box. if total score < random number, play continues. If total score = random number, player wins. if total score > random number, player loses. When player wins or loses, reset game
 
