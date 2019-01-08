@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-    //random number should be 19-120
-    //each crystal random between 1-12
-
     var randomNumber;
     var won = 0;
     var lost = 0;
@@ -22,6 +19,8 @@ $(document).ready(function() {
 
     }
 
+    //Randomly generate a number between 1 and 12 and assign it to each crystal. No two crystals may have the same number assigned(?).
+
     function getRandomNumber() {
 
         return Math.floor(Math.random() * 12) + 1;
@@ -34,7 +33,23 @@ $(document).ready(function() {
 
     })
 
+    //Part of resetting the game-- Clears the starting random number box
+
+    function clearRandomNumber() {
+
+        $(".random-number-box").empty();
+
+    }
+
+    //Starts/resets game
+
     function startGame() {
+
+        clearRandomNumber();
+
+        randomNumberRange();
+
+        getRandomNumber();
 
         console.log(randomNumber);
 
@@ -42,26 +57,18 @@ $(document).ready(function() {
 
     }
     
-    //Randomly generate a number between 1 and 12 and assign it to each crystal. No two crystals may have the same number assigned.
-
-    
-
     startGame();
 
     //When player clicks on a crystal, assign the score assigned to that crystal to total-score-box. Add that crystal's value to the amount in total-score-box each time it is clicked.
 
-    function clearRandomNumber() {
-
-        $(".random-number-box").empty();
-        
-    }
-    
     $(document).on("click", ".crystal", function() {
 
         var num = parseInt($(this).attr("data-random-value"));
         currentScore += num;
         console.log(currentScore);
         $(".total-score-box").html(currentScore);
+
+    //compare the score in total-score-box to the number in random-number-box. if total score < random number, play continues. If total score = random number, player wins. if total score > random number, player loses. When player wins or loses, reset game. If player wins, add 1 to the wins class. If player loses, add 1 to the losses class
 
         if (currentScore > randomNumber) {
             console.log("You lost!");
@@ -83,15 +90,13 @@ $(document).ready(function() {
 
     
 
-    //compare the score in total-score-box to the number in random-number-box. if total score < random number, play continues. If total score = random number, player wins. if total score > random number, player loses. When player wins or loses, reset game
+    
 
     // function resetGame() {
     //     randomNumberRange();
     //     getRandomNumber();
 
     // }
-
-    //If player wins, add 1 to the wins class. If player loses, add 1 to the losses class
     
     
 });
