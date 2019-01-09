@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    $(".total-score-box").text("0");
+
     var randomNumber;
     var won = 0;
     var lost = 0;
@@ -40,15 +42,17 @@ $(document).ready(function() {
     //Part of resetting the game-- Clears the starting random number box
 
     function clearRandomNumber() {
-        console.log('clearRandomNumber')
+
         $(".random-number-box").empty();
 
     }
 
     function clearCurrentScore() {
-        console.log(currentScore);
+
         $(".total-score-box").empty();
+
         currentScore = 0;
+
     }
 
     //Starts/resets game
@@ -63,9 +67,9 @@ $(document).ready(function() {
 
         setRandomNumber();
 
-        console.log(randomNumber);
-
         $(".random-number-box").append(randomNumber);
+
+        $(".total-score-box").text("0");
 
     }
     
@@ -76,8 +80,9 @@ $(document).ready(function() {
     $(document).on("click", ".crystal", function() {
 
         var num = parseInt($(this).attr("data-random-value"));
+
         currentScore += num;
-        console.log(currentScore);
+
         $(".total-score-box").html(currentScore);
 
     //compare the score in total-score-box to the number in random-number-box. if total score < random number, play continues. If total score = random number, player wins. if total score > random number, player loses. When player wins or loses, reset game. If player wins, add 1 to the wins class. If player loses, add 1 to the losses class
@@ -86,14 +91,14 @@ $(document).ready(function() {
 
             lost++;
             $(".losses").html("Losses: " + lost);
-            alert("You went over! Sorry, you lose.")
+            alert("You went over! Sorry, you lose.");
             startGame();
             
         } else if (currentScore === randomNumber) {
 
             won++;
             $(".wins").html("Wins: " + won);
-            alert("You matched the number without going over! You win!")
+            alert("You matched the number without going over! You win!");
             startGame();
             
         }
