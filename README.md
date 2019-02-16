@@ -1,5 +1,6 @@
 # unit-4-game
 Homework assignment #4: jQuery
+https://webdevserg.io/unit-4-game/
 
 *unit-4-game*, also known as **Crystal Collector**, is an exercise in jQuery. It is a game that uses the jQuery language to dynamically update the DOM as a user provides input.
 
@@ -7,4 +8,4 @@ The idea behind the game is to match a predetermined score without going over. T
 
 The user either matches the score exactly and wins, or goes over and loses. In either case, the game resets by changing the target score and the value of each crystal. A win/loss counter is also updated.
 
-This game was written by Sergio Di Martino as a homework assignment for UC Berkeley Extension Coding Bootcamp. Any questions or issues with this game can be directed to [Sergio](mailto:sdimartino@gmail.com).
+This game was written by Sergio Di Martino as a homework assignment for UC Berkeley Extension Coding Bootcamp. Any questions or issues with this game can be directed to [Sergio](mailto:sergio@webdevserg.io).
